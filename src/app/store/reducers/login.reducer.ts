@@ -36,7 +36,7 @@ export function reducer(state = initialState, action: UserLoginActions): State {
       return Object.assign({}, state, {
         authenticated: action.payload.authenticated,
         loaded: true,
-        login: action.payload.user
+        login: action.payload.login
       });
 
     case AuthActionTypes.AUTHENTICATE_ERROR:
@@ -47,7 +47,7 @@ export function reducer(state = initialState, action: UserLoginActions): State {
       });
 
     case AuthActionTypes.AUTHENTICATE_SUCCESS:
-      const login: Login = action.payload.user;
+      const login: Login = action.payload.login;
       if (login === null) {
         return state;
       }
